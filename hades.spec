@@ -1,22 +1,21 @@
 #
 # Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.4 2001-05-02 16:29:05 qboosh Exp $
+# $Id: hades.spec,v 1.5 2001-07-26 04:39:38 agaran Exp $
 #
-%define prefix   /usr
-
 Summary:	Hades 
 Name:		hades
 Version:	0.1.0
 Release:	1
 License:	LGPL
-Group:		System Environment/Base
-######		Unknown group!
+Group:		Applications
+Group(de):	Applikationen
+Group(pl):	Aplikacje
 Source0:	ftp://lumumba.luc.ac.be/pub/takis/sources/%{name}-%{version}.tar.gz
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	hades
 URL:		http://lumumba.luc.ac.be/takis/hades
 Prereq:		/sbin/install-info
 Requires:	gdk-pixbuf >= 0.8.0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Hades: a video playing program.
@@ -41,12 +40,7 @@ else
 CFLAGS="%{rpmcflags}" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 fi
 
-if [ "$SMP" != "" ]; then
-  (make "MAKE=make -k -j $SMP"; exit 0)
-  make
-else
-  make
-fi
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -64,5 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Graphics//*
 %{_pixmapsdir}/*
+
 #%{_datadir}/oaf/*
 #%config %{_sysconfdir}/CORBA/*
