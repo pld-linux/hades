@@ -1,20 +1,18 @@
-#
-# Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.6 2001-09-19 13:55:58 ankry Exp $
-#
-Summary:	Hades 
+Summary:	Hades - MPEG-video player
+Summary(pl):	Hades - odtwarzacz filmów MPEG
 Name:		hades
 Version:	0.1.0
 Release:	1
 License:	LGPL
 Group:		Applications
 Group(de):	Applikationen
+Group(es):	Aplicaciones
 Group(pl):	Aplikacje
+Group(pt):	Aplicações
+Group(pt_BR):	Aplicações
 Source0:	ftp://lumumba.luc.ac.be/pub/linux_software/various/%{name}-%{version}.tar.gz
-Obsoletes:	hades
-URL:		http://lumumba.luc.ac.be/takis/hades
-Prereq:		/sbin/install-info
-Requires:	gdk-pixbuf >= 0.8.0
+URL:		http://lumumba.luc.ac.be/takis/hades/
+Requires:	gdk-pixbuf-devel >= 0.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,6 +21,9 @@ Hades: a video playing program.
 GNOME is the GNU Network Object Model Environment. That's a fancy name
 but really GNOME is a nice GUI desktop environment. It makes using
 your computer easy, powerful, and easy to configure.
+
+%description -l pl
+Hades - odtwarzacz filmów dla.
 
 %prep
 %setup -q
@@ -35,9 +36,9 @@ export LC_ALL LINGUAS LANG
 
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-CFLAGS="%{rpmcflags}" ./autogen.sh --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
+CFLAGS="%{rpmcflags}" ./autogen.sh --prefix=%{_prefix} --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 else
-CFLAGS="%{rpmcflags}" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
+CFLAGS="%{rpmcflags}" ./configure --prefix=%{_prefix} --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 fi
 
 %{__make}
@@ -45,6 +46,8 @@ fi
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
+
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,9 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc {AUTHORS,ChangeLog,NEWS,README}.gz
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Graphics//*
+%{_applnkdir}/Graphics/*
 %{_pixmapsdir}/*
 
 #%{_datadir}/oaf/*
