@@ -55,5 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/*
 %{_pixmapsdir}/*
 
-#%{_datadir}/oaf/*
+#%%{_datadir}/oaf/*
 #%config %{_sysconfdir}/CORBA/*
