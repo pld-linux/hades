@@ -1,43 +1,32 @@
 #
 # Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.1 2000-11-07 20:05:30 kloczek Exp $
+# $Id: hades.spec,v 1.2 2000-12-03 02:38:54 agaran Exp $
 #
-%define ver      0.1.0
-%define rel      1
 %define prefix   /usr
-%define name	 hades
 
-Summary: Hades 
-Name: %name
-Version: %ver
-Release: %rel
-Copyright: LGPL
-Group: System Environment/Base
-Source: ftp://lumumba.luc.ac.be/pub/takis/sources/hades-%{ver}.tar.gz
-BuildRoot: /var/tmp/hades
-Obsoletes: hades
-Packager: Panagiotis Issaris <takis@beta.luc.ac.be>
-URL: http://lumumba.luc.ac.be/takis/hades
-Prereq: /sbin/install-info
-Prefix: %{prefix}
-Docdir: %{prefix}/doc
-Requires: gdk-pixbuf >= 0.8.0
+Summary:	Hades 
+Name:		hades
+Version:	0.1.0
+Release:	1
+License:	LGPL
+Group:		System Environment/Base
+######		Unknown group!
+Source0:	ftp://lumumba.luc.ac.be/pub/takis/sources/%{name}-%{version}.tar.gz
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	hades
+URL:		http://lumumba.luc.ac.be/takis/hades
+Prereq:		/sbin/install-info
+Requires:	gdk-pixbuf >= 0.8.0
 
 %description
 Hades: a video playing program.
 
-GNOME is the GNU Network Object Model Environment.  That's a fancy
-name but really GNOME is a nice GUI desktop environment.  It makes
-using your computer easy, powerful, and easy to configure.
-
-%changelog
-
-* Wed Oct 4 2000  Panagiotis Issaris <takis@lumumba.luc.ac.be>
-
-- Created the .spec file
+GNOME is the GNU Network Object Model Environment. That's a fancy name
+but really GNOME is a nice GUI desktop environment. It makes using
+your computer easy, powerful, and easy to configure.
 
 %prep
-%setup
+%setup -q
 
 %build
 LC_ALL=""
@@ -47,9 +36,9 @@ export LC_ALL LINGUAS LANG
 
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT/etc
+CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT/etc
+CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 fi
 
 if [ "$SMP" != "" ]; then
@@ -61,7 +50,7 @@ fi
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT%{prefix} install
+%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,10 +60,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-, root, root)
+%defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%{prefix}/bin/*
-%{prefix}/share/gnome/apps/Graphics//*
-%{prefix}/share/pixmaps/*
-#%{prefix}/share/oaf/*
-#%config /etc/CORBA/*
+%attr(755,root,root) %{_bindir}/*
+%{_applnkdir}/Graphics//*
+%{_datadir}/pixmaps/*
+#%{_datadir}/oaf/*
+#%config %{_sysconfdir}/CORBA/*
