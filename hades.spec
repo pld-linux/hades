@@ -5,11 +5,6 @@ Version:	0.1.0
 Release:	1
 License:	LGPL
 Group:		Applications
-Group(de):	Applikationen
-Group(es):	Aplicaciones
-Group(pl):	Aplikacje
-Group(pt):	Aplicações
-Group(pt_BR):	Aplicações
 Source0:	ftp://lumumba.luc.ac.be/pub/linux_software/various/%{name}-%{version}.tar.gz
 URL:		http://lumumba.luc.ac.be/takis/hades/
 Requires:	gdk-pixbuf-devel >= 0.8.0
