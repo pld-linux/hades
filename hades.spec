@@ -1,6 +1,6 @@
 #
 # Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.3 2001-02-02 17:50:34 kloczek Exp $
+# $Id: hades.spec,v 1.4 2001-05-02 16:29:05 qboosh Exp $
 #
 %define prefix   /usr
 
@@ -36,9 +36,9 @@ export LC_ALL LINGUAS LANG
 
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
+CFLAGS="%{rpmcflags}" ./autogen.sh --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 else
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
+CFLAGS="%{rpmcflags}" ./configure --prefix=%prefix --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 fi
 
 if [ "$SMP" != "" ]; then
@@ -55,9 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
