@@ -1,6 +1,6 @@
 #
 # Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.2 2000-12-03 02:38:54 agaran Exp $
+# $Id: hades.spec,v 1.3 2001-02-02 17:50:34 kloczek Exp $
 #
 %define prefix   /usr
 
@@ -64,6 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Graphics//*
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 #%{_datadir}/oaf/*
 #%config %{_sysconfdir}/CORBA/*
