@@ -1,6 +1,6 @@
 #
 # Note that this is NOT a relocatable package
-# $Id: hades.spec,v 1.5 2001-07-26 04:39:38 agaran Exp $
+# $Id: hades.spec,v 1.6 2001-09-19 13:55:58 ankry Exp $
 #
 Summary:	Hades 
 Name:		hades
@@ -10,7 +10,7 @@ License:	LGPL
 Group:		Applications
 Group(de):	Applikationen
 Group(pl):	Aplikacje
-Source0:	ftp://lumumba.luc.ac.be/pub/takis/sources/%{name}-%{version}.tar.gz
+Source0:	ftp://lumumba.luc.ac.be/pub/linux_software/various/%{name}-%{version}.tar.gz
 Obsoletes:	hades
 URL:		http://lumumba.luc.ac.be/takis/hades
 Prereq:		/sbin/install-info
