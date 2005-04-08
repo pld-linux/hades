@@ -4,7 +4,7 @@ Name:		hades
 Version:	0.1.0
 Release:	1
 License:	LGPL
-Group:		Applications
+Group:		X11/Applications/Multimedia
 Source0:	ftp://lumumba.luc.ac.be/pub/linux_software/various/%{name}-%{version}.tar.gz
 # Source0-md5:	950a1f52a6a56d1ea55e05339a026a17
 URL:		http://lumumba.luc.ac.be/takis/hades/
