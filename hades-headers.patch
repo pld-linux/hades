@@ -1,0 +1,66 @@
+--- hades-0.1.0/src/support.h.orig	2005-04-08 18:27:06.000000000 +0200
++++ hades-0.1.0/src/support.h	2005-04-08 18:27:11.000000000 +0200
+@@ -1,7 +1,7 @@
+ #ifndef SUPPORT_H
+ #define SUPPORT_H
+ 
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ 
+ #define TIMEOUT_VALUE 50
+ #define BUFFER_SIZE 8
+--- hades-0.1.0/src/main.c.orig	2005-04-08 18:32:24.000000000 +0200
++++ hades-0.1.0/src/main.c	2005-04-08 18:32:07.000000000 +0200
+@@ -29,7 +29,7 @@
+ 
+ #include <stdlib.h>
+ #include <gtk/gtk.h>
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ #include <math.h>
+ #include <libmpeg3/libmpeg3.h>
+ #include <gnome.h>
+--- hades-0.1.0/src/callbacks.c.orig	2005-04-08 18:35:29.000000000 +0200
++++ hades-0.1.0/src/callbacks.c	2005-04-08 18:35:10.000000000 +0200
+@@ -9,7 +9,7 @@
+ 
+ #include <stdlib.h>
+ #include <gtk/gtk.h>
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ #include <math.h>
+ #include <libmpeg3/libmpeg3.h>
+ #include <gnome.h>
+--- hades-0.1.0/src/MPEG_Movie.c.orig	2005-04-08 18:36:48.000000000 +0200
++++ hades-0.1.0/src/MPEG_Movie.c	2005-04-08 18:36:57.000000000 +0200
+@@ -25,7 +25,7 @@
+ 
+ #include <stdlib.h>
+ #include <gtk/gtk.h>
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ #include <math.h>
+ #include <libmpeg3/libmpeg3.h>
+ 
+--- hades-0.1.0/src/MPEG_Movie.h.orig	2005-04-08 18:41:05.000000000 +0200
++++ hades-0.1.0/src/MPEG_Movie.h	2005-04-08 18:41:18.000000000 +0200
+@@ -25,7 +25,7 @@
+ 
+ #include <stdlib.h>
+ #include <gtk/gtk.h>
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ #include <math.h>
+ #include <libmpeg3/libmpeg3.h>
+ 
+--- hades-0.1.0/src/gdk_pixbuf_ops.h.orig	2005-04-08 18:47:35.000000000 +0200
++++ hades-0.1.0/src/gdk_pixbuf_ops.h	2005-04-08 18:47:50.000000000 +0200
+@@ -25,7 +25,7 @@
+ 
+ #include <stdlib.h>
+ #include <gtk/gtk.h>
+-#include <gdk-pixbuf/gdk-pixbuf.h>
++#include <gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h>
+ #include <math.h>
+ 
+ typedef void (*frame_convertor) (GdkPixbuf *);
