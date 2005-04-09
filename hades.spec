@@ -22,7 +22,7 @@ but really GNOME is a nice GUI desktop environment. It makes using
 your computer easy, powerful, and easy to configure.
 
 %description -l pl
-Hades - odtwarzacz filmów dla.
+Hades - odtwarzacz filmów MPEG.
 
 %prep
 %setup -q
