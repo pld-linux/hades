@@ -17,10 +17,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Hades: a video playing program.
 
-GNOME is the GNU Network Object Model Environment. That's a fancy name
-but really GNOME is a nice GUI desktop environment. It makes using
-your computer easy, powerful, and easy to configure.
-
 %description -l pl
 Hades - odtwarzacz filmów MPEG.
 
