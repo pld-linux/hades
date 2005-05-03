@@ -11,6 +11,7 @@ URL:		http://lumumba.luc.ac.be/takis/hades/
 Patch0:		%{name}-headers.patch
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	gtk+-devel
+BuildRequires:	sgml-tools
 Requires:	gdk-pixbuf-devel >= 0.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
