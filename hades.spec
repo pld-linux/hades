@@ -5,8 +5,8 @@ Version:	0.1.0
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Multimedia
-Source0:	ftp://lumumba.luc.ac.be/pub/linux_software/various/%{name}-%{version}.tar.gz
-# Source0-md5:	950a1f52a6a56d1ea55e05339a026a17
+Source0:	http://lumumba.luc.ac.be/takis/hades/%{name}-%{version}.tar.gz
+# Source0-md5:	fb99e94a26c6afa3b72b557aa07a8d09
 URL:		http://lumumba.luc.ac.be/takis/hades/
 Patch0:		%{name}-headers.patch
 BuildRequires:	gdk-pixbuf-devel
