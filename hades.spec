@@ -38,7 +38,8 @@ else
 CFLAGS="%{rpmcflags}" ./configure --prefix=%{_prefix} --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
 fi
 
-%{__make}
+%{__make} \
+	CFLAGS="`gdk-pixbuf-config --cflags`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
