@@ -7,11 +7,17 @@ License:	LGPL
 Group:		X11/Applications/Multimedia
 Source0:	http://lumumba.luc.ac.be/takis/hades/%{name}-%{version}.tar.gz
 # Source0-md5:	fb99e94a26c6afa3b72b557aa07a8d09
+Patch0:		%{name}-ac.patch
 URL:		http://lumumba.luc.ac.be/takis/hades/
-Patch0:		%{name}-headers.patch
-BuildRequires:	gdk-pixbuf-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	libmpeg3-devel
+%ifarch %{ix86}
+BuildRequires:	nasm
+%endif
 BuildRequires:	sgml-tools
 Requires:	gdk-pixbuf-devel >= 0.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,19 +33,13 @@ Hades - odtwarzacz filmów MPEG.
 %patch0 -p1
 
 %build
-LC_ALL=""
-LINGUAS=""
-LANG=""
-export LC_ALL LINGUAS LANG
-# Needed for snapshot releases.
-if [ ! -f configure ]; then
-CFLAGS="%{rpmcflags}" ./autogen.sh --prefix=%{_prefix} --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
-else
-CFLAGS="%{rpmcflags}" ./configure --prefix=%{_prefix} --sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir}
-fi
+%{__aclocal} -I macros
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure
 
-%{__make} \
-	CFLAGS="`gdk-pixbuf-config --cflags`"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,6 +60,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
-
-#%%{_datadir}/oaf/*
-#%config %{_sysconfdir}/CORBA/*
