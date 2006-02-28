@@ -50,7 +50,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/gnome/apps/Graphics/*.desktop \
       $RPM_BUILD_ROOT%{_desktopdir}
-	
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
