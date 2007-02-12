@@ -1,5 +1,5 @@
 Summary:	Hades - MPEG-video player
-Summary(pl):	Hades - odtwarzacz filmów MPEG
+Summary(pl.UTF-8):   Hades - odtwarzacz filmÃ³w MPEG
 Name:		hades
 Version:	0.1.0
 Release:	1
@@ -25,8 +25,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Hades: a video playing program.
 
-%description -l pl
-Hades - odtwarzacz filmów MPEG.
+%description -l pl.UTF-8
+Hades - odtwarzacz filmÃ³w MPEG.
 
 %prep
 %setup -q
